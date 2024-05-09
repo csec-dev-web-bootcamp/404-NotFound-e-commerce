@@ -51,6 +51,7 @@ export async function updatePost(id, data) {
   return res.data;
 }
 
+
 export async function deletePost(id) {
   const res = await fetcher(`/posts/${id}`, {
     method: "DELETE",
