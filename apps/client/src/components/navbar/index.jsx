@@ -3,8 +3,7 @@
 import { FaRegUser, FaCartArrowDown } from "react-icons/fa";
 import React from "react";
 import { useCart } from "@app/client/store/cart-store";
-import { ModeToggle } from "../ui/ModeToggle";
-// import DarkModeToggle from '../ui/DarkMode'
+import ModeToggle from "../ui/ModeToggle";
 
 const page = () => {
   const cart = useCart();
