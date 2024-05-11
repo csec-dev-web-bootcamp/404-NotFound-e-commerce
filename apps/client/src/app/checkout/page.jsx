@@ -176,21 +176,96 @@ const data = [
   },
 ];
 
-import ProductsCard from "./ProductsCard";
-
-export default function CardsContainer() {
+import Image from "next/image";
+import React from "react";
+// import { img } from "../../assets/tablet-e-commerce";
+const page = () => {
   return (
-    <div className="font-medium">
-      <div className="p-4 mx-auto lg:max-w-6xl max-w-xl md:max-w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {data.map((product) => (
-            <ProductsCard
-              key={product.id}
-              product={product}
-            />
-          ))}
+    <div className="w-screen justify-center">
+      <div className="flex flex-col justify-center items-center">
+        <h1 className="text-3xl font-bold">
+          Checkout products that are added to your cart
+        </h1>
+        <div className="card-container ">
+          <div className="max-w-[1400px] flex flex-col lg:flex-row rounded-lg border-slate-400 shadow-lg p-5 m-10">
+            <div className="carts flex flex-col border-2 border-slate-600 rounded-lg w-full">
+              <div className="product flex w-full rounded-lg p-5 m-4">
+                <img
+                  width={50}
+                  height={50}
+                  alt="my-image"
+                  src="./tablet-e-commerce"
+                />
+                <div className="flex flex-col">
+                  <p className="text-2xl">product title</p>
+                  <div className="flex">
+                    <div className="actions">
+                      <button className="p-4 rounded-md border-2">Add</button>
+                      <button className="p-4 rounded-md border-2">Sub</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="product flex w-full rounded-lg p-5 m-4">
+                <img
+                  width={50}
+                  height={50}
+                  alt="my-image"
+                  src="./tablet-e-commerce"
+                />
+                <div className="flex flex-col">
+                  <p className="text-2xl">product.title</p>
+                  <div className="flex">
+                    <div className="actions">
+                      <button className="p-4 rounded-md border-2">Add</button>
+                      <button className="p-4 rounded-md border-2">Sub</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="product flex w-full rounded-lg p-5 m-4">
+                <img
+                  width={50}
+                  height={50}
+                  alt="my-image"
+                  src="./tablet-e-commerce"
+                />
+                <div className="flex flex-col">
+                  <p className="text-2xl">product.title</p>
+                  <div className="flex">
+                    <div className="actions">
+                      <button className="p-4 rounded-md border-2">Add</button>
+                      <button className="p-4 rounded-md border-2">Sub</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="st flex flex-col border-2 border-slate-600 rounded-lg max-w-80">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero
+              consequatur, tempore eligendi veniam deleniti ea nemo fuga nobis
+              maiores dolores vel ab sequi totam veritatis eaque dolore
+              praesentium. Magni, perferendis.Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Vero consequatur, tempore eligendi
+              veniam deleniti ea nemo fuga nobis maiores dolores vel ab sequi
+              totam veritatis eaque dolore praesentium. Magni, perferendis.Lorem
+              ipsum, dolor sit amet consectetur adipisicing elit. Vero
+              consequatur, tempore eligendi veniam deleniti ea nemo fuga nobis
+              maiores dolores vel ab sequi totam veritatis eaque dolore
+              praesentium. Magni, perferendis.Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Vero consequatur, tempore eligendi
+              veniam deleniti ea nemo fuga nobis maiores dolores vel ab sequi
+              totam veritatis eaque dolore praesentium. Magni, perferendis.Lorem
+              ipsum, dolor sit amet consectetur adipisicing elit. Vero
+              consequatur, tempore eligendi veniam deleniti ea nemo fuga nobis
+              maiores dolores vel ab sequi totam veritatis eaque dolore
+              praesentium. Magni, perferendis.
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default page;

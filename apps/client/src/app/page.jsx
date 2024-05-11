@@ -3,6 +3,7 @@
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import CardsContainer from "../components/main-products-body/CardsContainer";
+import ProductsCategory from "../components/main-products-body/ProductsCategory";
 
 export default function page() {
   return (
@@ -11,6 +12,7 @@ export default function page() {
         <Navbar />
         <Header />
         <CardsContainer />
+        {/* <ProductsCategory /> */}
       </div>
     </main>
   );
