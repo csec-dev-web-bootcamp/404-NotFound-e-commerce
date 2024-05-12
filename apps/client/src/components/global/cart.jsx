@@ -21,6 +21,7 @@ import { FaCartArrowDown } from "react-icons/fa";
 
 export default function Cart() {
   const cart = useCart();
+
   return (
     <Sheet>
       <SheetTrigger className="relative">
