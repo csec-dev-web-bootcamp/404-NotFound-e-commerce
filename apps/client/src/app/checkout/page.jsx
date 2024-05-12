@@ -1,3 +1,5 @@
+"use client";
+
 const data = [
   {
     id: 1,
@@ -20,246 +22,133 @@ const data = [
     image:
       "https://cdn.mos.cms.futurecdn.net/MfGHFkGhpcwwNQ7VikCkej-1200-80.jpg",
   },
-  {
-    id: 4,
-    title: "Apple Watch Series 7",
-    price: 399.99,
-    image:
-      "https://www.apple.com/newsroom/images/product/watch/standard/Apple_watch-series7-availability_hero_10052021_big.jpg.large.jpg",
-  },
-  {
-    id: 5,
-    title: "iPad Air 4",
-    price: 599.99,
-    image:
-      "https://www.cultofmac.com/wp-content/uploads/2020/09/CD387101-6D45-4664-A623-7D250668F782.jpeg",
-  },
-  {
-    id: 6,
-    title: "AirPods Pro",
-    price: 249.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 7,
-    title: "Seagate External Hard Drive",
-    price: 79.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 8,
-    title: "PlayStation 5 Console",
-    price: 499.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 9,
-    title: "Fitbit Charge 5",
-    price: 179.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 10,
-    title: "Canon EOS R5 Camera",
-    price: 3799.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 11,
-    title: "Bose Bluetooth Speaker",
-    price: 299.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 12,
-    title: "HP OfficeJet Pro Printer",
-    price: 229.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 13,
-    title: "Dell 4K Monitor",
-    price: 629.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 14,
-    title: "Logitech Wireless Keyboard",
-    price: 99.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 15,
-    title: "Razer Gaming Mouse",
-    price: 69.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 16,
-    title: "Philips Smart Bulb Kit",
-    price: 199.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 17,
-    title: "North Face Recon Backpack",
-    price: 99.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 18,
-    title: "Anker Portable Charger",
-    price: 49.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 19,
-    title: "AmazonBasics Lightning Cable",
-    price: 12.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 20,
-    title: "Logitech HD Webcam",
-    price: 69.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 21,
-    title: "Linksys Wi-Fi Router",
-    price: 149.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 22,
-    title: "SanDisk SDXC Memory Card",
-    price: 34.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 23,
-    title: "Samsung USB Flash Drive",
-    price: 24.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 24,
-    title: "Logitech Gaming Mouse",
-    price: 79.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
-  {
-    id: 25,
-    title: "AmazonBasics HDMI Cable",
-    price: 8.99,
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg",
-  },
 ];
 
+import { X } from "lucide-react";
 import Image from "next/image";
+import { Button } from "../../components/ui/button";
 import React from "react";
+import { Separator } from "../../components/ui/separator";
+import { useCart } from "@app/client/store/cart-store";
 // import { img } from "../../assets/tablet-e-commerce";
 const page = () => {
+  const carts = useCart();
+  const products = carts.cartProducts;
+  console.log(carts.cartProducts);
   return (
-    <div className="w-screen justify-center">
+    <div className=" justify-center dark:bg-gray-900">
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-3xl font-bold">
           Checkout products that are added to your cart
         </h1>
-        <div className="card-container ">
-          <div className="max-w-[1400px] flex flex-col lg:flex-row rounded-lg border-slate-400 shadow-lg p-5 m-10">
-            <div className="carts flex flex-col border-2 border-slate-600 rounded-lg w-full">
-              <div className="product flex w-full rounded-lg p-5 m-4">
-                <img
-                  width={50}
-                  height={50}
-                  alt="my-image"
-                  src="./tablet-e-commerce"
-                />
-                <div className="flex flex-col">
-                  <p className="text-2xl">product title</p>
-                  <div className="flex">
-                    <div className="actions">
-                      <button className="p-4 rounded-md border-2">Add</button>
-                      <button className="p-4 rounded-md border-2">Sub</button>
+        <div className="container m-20">
+          <div class="grid grid-cols-3  gap-8">
+            <div class="bg-stone-100 dark:text-white dark:bg-gray-800 col-span-2 p-2 border-[1px] border-slate-300 rounded-lg  flex flex-col shadow-md gap-4">
+              {products.map((item) => {
+                return (
+                  <div
+                    key={item.id}
+                    className="card border-[2px] rounded-lg  dark:border-slate-700 border-stone-300 shadow-lg w-full grid grid-cols-3 gap-4">
+                    <img
+                      src={item.image}
+                      alt=""
+                      className="h-full col-span-1 p-1 row-span-3   rounded-lg"
+                    />
+                    <div className="col-span-2 row-span-3 ">
+                      <div className="grid  gap-y-3 h-full p-2">
+                        <div className="flex row-span-1 justify-between items-center">
+                          <h3 className="text-xl font-semibold">
+                            {item.title}
+                          </h3>
+
+                          <Button
+                            variant="cartBtn"
+                            size="smicon"
+                            rounded="full">
+                            <X />
+                          </Button>
+                        </div>
+                        <div className="row-span-2 flex flex-col justify-between">
+                          <p>
+                            Lorem ti harum aperiam molestiae! Totam quisquam
+                            rerum omnis eos unde!
+                          </p>
+                          <p className="font-bold">$127.3</p>
+                        </div>
+                        <p className="row-sapn-2 flex justify-between">
+                          <div className="flex gap-2">
+                            <Button
+                              variant="cartBtn"
+                              display="center"
+                              size="icon"
+                              font="highXl">
+                              +
+                            </Button>
+                            <Button
+                              variant="cartBtn"
+                              display="center"
+                              size="icon"
+                              font="highXl">
+                              -
+                            </Button>
+                          </div>
+                          <Button variant="cartBtn">
+                            Complie only this cart
+                          </Button>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="product flex w-full rounded-lg p-5 m-4">
-                <img
-                  width={50}
-                  height={50}
-                  alt="my-image"
-                  src="./tablet-e-commerce"
-                />
-                <div className="flex flex-col">
-                  <p className="text-2xl">product.title</p>
-                  <div className="flex">
-                    <div className="actions">
-                      <button className="p-4 rounded-md border-2">Add</button>
-                      <button className="p-4 rounded-md border-2">Sub</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="product flex w-full rounded-lg p-5 m-4">
-                <img
-                  width={50}
-                  height={50}
-                  alt="my-image"
-                  src="./tablet-e-commerce"
-                />
-                <div className="flex flex-col">
-                  <p className="text-2xl">product.title</p>
-                  <div className="flex">
-                    <div className="actions">
-                      <button className="p-4 rounded-md border-2">Add</button>
-                      <button className="p-4 rounded-md border-2">Sub</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
-            <div className="st flex flex-col border-2 border-slate-600 rounded-lg max-w-80">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero
-              consequatur, tempore eligendi veniam deleniti ea nemo fuga nobis
-              maiores dolores vel ab sequi totam veritatis eaque dolore
-              praesentium. Magni, perferendis.Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Vero consequatur, tempore eligendi
-              veniam deleniti ea nemo fuga nobis maiores dolores vel ab sequi
-              totam veritatis eaque dolore praesentium. Magni, perferendis.Lorem
-              ipsum, dolor sit amet consectetur adipisicing elit. Vero
-              consequatur, tempore eligendi veniam deleniti ea nemo fuga nobis
-              maiores dolores vel ab sequi totam veritatis eaque dolore
-              praesentium. Magni, perferendis.Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Vero consequatur, tempore eligendi
-              veniam deleniti ea nemo fuga nobis maiores dolores vel ab sequi
-              totam veritatis eaque dolore praesentium. Magni, perferendis.Lorem
-              ipsum, dolor sit amet consectetur adipisicing elit. Vero
-              consequatur, tempore eligendi veniam deleniti ea nemo fuga nobis
-              maiores dolores vel ab sequi totam veritatis eaque dolore
-              praesentium. Magni, perferendis.
+            <div class="bg-stone-100 dark:text-white dark:bg-gray-800 col-span-1 max-h-[650px] sticky top-20 p-4 border-[1px] border-slate-300 rounded-lg shadow-lg flex flex-col items-center justify-between  gap-4">
+              <p className="text-2xl font-semibold mb-8">
+                Summary of your carts
+              </p>
+              <div className="info flex flex-col gap-2 w-full ">
+                <p className=" ">
+                  Total price <br />
+                  <span className="font-bold ">$132.32</span>
+                </p>
+                <Separator
+                  orientation="horizontal"
+                  className="bg-slate-600"
+                />
+                <p className=" ">
+                  Number of products in the cart <br />
+                  <span className="font-bold ">5 products</span>
+                </p>
+                <Separator
+                  orientation="horizontal"
+                  className="bg-slate-600"
+                />
+                <p className=" ">
+                  Duration for being eligible <br />
+                  <span className="font-bold ">may - 12, 2024</span>
+                </p>
+                <Separator
+                  orientation="horizontal"
+                  className="bg-slate-600"
+                />
+                <p className=" ">
+                  Additional informations <br />
+                  <span className="font-bold ">updating wait</span>
+                </p>
+                <Separator
+                  orientation="horizontal"
+                  className="bg-slate-600"
+                />
+                <p className=" ">
+                  deliverity informations <br />
+                  <span className="font-bold ">Verifided</span>
+                </p>
+              </div>
+              <Button
+                variant="cartBtn"
+                className="w-full">
+                Start the process
+              </Button>
             </div>
           </div>
         </div>

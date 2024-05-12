@@ -23,29 +23,49 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         cartBtn:
-          "bg-transparent text-black border-2 border-slate-800 rounded-sm hover:bg-slate-800 mt-1 hover:text-white",
+          "bg-transparent text-black border-2 border-slate-800 hover:bg-slate-800  hover:text-white",
+      },
+      display: {
+        default: "none",
+        center: "flex items-center justify-center",
+      },
+      font: {
+        default: "text-md",
+        xl: "text-xl",
+        highXl: "text-3xl",
       },
       size: {
-        default: "h-10 px-4 py-2",
+        default: "h-10 px-4 py-1.5",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        icon: "h-10 w-10 p-1",
         smicon: "h-7 w-7",
+      },
+      rounded: {
+        default: "rounded-sm",
+        full: "rounded-full",
       },
     },
     defaultVariants: {
+      rounded: "default",
       variant: "default",
       size: "default",
+      font: "default",
     },
   }
 );
 
 const Button = React.forwardRef(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  (
+    { className, variant, size, rounded, font, asChild = false, ...props },
+    ref
+  ) => {
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(
+          buttonVariants({ variant, size, rounded, font, className })
+        )}
         ref={ref}
         {...props}
       />
