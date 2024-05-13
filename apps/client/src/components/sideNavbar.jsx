@@ -9,6 +9,7 @@ import {
     UsersRound,
     } from "lucide-react"
 import { Button } from "./ui/button";
+import { LineChart } from "lucide-react";
 export default function SideNavbar() {
     const [isCollapsed,setIsCollapsed]=useState(false);
     function toggleSidebar(){
@@ -40,6 +41,12 @@ export default function SideNavbar() {
                         title: "Orders",
                         href: "/admin-dashboard/orders",
                         icon: ShoppingCart,
+                        variant: "ghost",
+                    },
+                    {
+                        title: "Orders",
+                        href: "/admin-dashboard/top-products",
+                        icon: LineChart,
                         variant: "ghost",
                     },
                     {
