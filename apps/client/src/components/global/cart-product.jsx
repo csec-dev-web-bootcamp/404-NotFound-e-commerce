@@ -18,39 +18,34 @@ export default function CartProduct({ product }) {
   const cart = useCart();
 
   return (
-    <Card className="my-4 border-slate-500 shadow-xl">
+    <Card>
       <CardHeader>
         <div className="flex items-start justify-between">
-          <CardTitle className="">{product.title}</CardTitle>
+          <CardTitle>{product.name}</CardTitle>
           <Button
-            variant="cartBtn"
-            size="smicon"
-            rounded="full"
-            onClick={() => carts.removeFromCart(item.id)}>
+            size="icon"
+            variant="ghost"
+            onClick={() => cart.removeFromCart(product.id)}>
             <X />
           </Button>
         </div>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-4">
-          <p className="font-semibold">${product.totalPrice}</p>
+          <p>{product.totalPrice}</p>
           <div className="flex gap-4 items-center">
             <Button
-              variant="cartBtn"
-              display="center"
+              onClick={() => cart.minusProductAmount(product.id)}
               size="icon"
-              onClick={() => carts.minusProductAmount(item.id)}
-              font="highXl"
+              variant="outline"
               disabled={product.amount <= 1}>
               <Minus />
             </Button>
             <span>{product.amount}</span>
             <Button
-              variant="cartBtn"
-              display="center"
+              onClick={() => cart.addProductAmount(product.id)}
               size="icon"
-              onClick={() => carts.addProductAmount(item.id)}
-              font="highXl">
+              variant="outline">
               <Plus />
             </Button>
           </div>

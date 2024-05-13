@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useCart } from "@app/client/store/cart-store";
 import { LucideHeart } from "lucide-react";
@@ -6,12 +6,20 @@ import React, { useMemo } from "react";
 import { Button } from "../ui/button";
 import { FaCartPlus } from "react-icons/fa";
 import { MdRemoveShoppingCart } from "react-icons/md";
+import { useWishlist } from "@app/client/store/wishlist";
+import { LucideHeartCrack } from "lucide-react";
+import { LucideHeartOff } from "lucide-react";
 
 export default function ProductsCard({ product }) {
   const cart = useCart();
-  const isAdded = useMemo(() => {
+  const wishlist = useWishlist();
+  const isAddedToCart = useMemo(() => {
     return cart.cartProducts.find((prod) => prod.id === product.id);
   }, [cart.cartProducts]);
+
+  const isAddedToWishlist = useMemo(() => {
+    return wishlist.wishlistProducts.find((prod) => prod.id === product.id);
+  }, [wishlist.wishlistProducts]);
 
   return (
     <div className="p-2 rounded-sm border-[1px] border-slate-300 shadow-md">
@@ -31,18 +39,30 @@ export default function ProductsCard({ product }) {
               $15
             </strike>
           </h4>
-          <button className="p-1 m-2 rounded-full hover:bg-emerald-100">
-            <LucideHeart />
+          <button
+            className="p-1 m-2 rounded-full hover:bg-emerald-100"
+            onClick={() =>
+              isAddedToWishlist
+                ? wishlist.removeFromWishlist(product.id)
+                : wishlist.addToWishlist(product)
+            }>
+            {isAddedToWishlist ? <LucideHeartOff /> : <LucideHeart />}
           </button>
         </div>
         <Button
           variant="cartBtn"
           className="gap-3"
           onClick={() =>
-            isAdded ? cart.removeFromCart(product.id) : cart.addToCart(product)
+            isAddedToCart
+              ? cart.removeFromCart(product.id)
+              : cart.addToCart(product)
           }>
-          {isAdded ?  <MdRemoveShoppingCart size={24} /> : <FaCartPlus size={24} />}
-          {isAdded ? `remove from cart` : `add to cart`}
+          {isAddedToCart ? (
+            <MdRemoveShoppingCart size={24} />
+          ) : (
+            <FaCartPlus size={24} />
+          )}
+          {isAddedToCart ? `remove from cart` : `add to cart`}
         </Button>
       </div>
     </div>
