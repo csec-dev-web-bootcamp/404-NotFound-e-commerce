@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 // import { NavbarDemo } from "../ui/navbare-demo";
 
@@ -22,24 +23,36 @@ const Header = () => {
           </div>
           <div className="categories">
             <ul className="flex gap-4">
-              <li className="px-3 py-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer border-2 border-slate-700 rounded-sm">
+              <Link
+                href={"/fashion"}
+                className="px-3 py-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer border-2 border-slate-700 rounded-sm">
                 Fashion
-              </li>
-              <li className="px-3 py-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer border-2 border-slate-700 rounded-sm">
+              </Link>
+              <Link
+                href={"/electronics"}
+                className="px-3 py-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer border-2 border-slate-700 rounded-sm">
                 Electronics
-              </li>
-              <li className="px-3 py-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer border-2 border-slate-700 bg-slate-800 text-white rounded-sm">
-                Books & Media Hub
-              </li>
-              <li className="px-3 py-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer border-2 border-slate-700 rounded-sm">
+              </Link>
+              <Link
+                href={"/books-media"}
+                className="px-3 py-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer border-2 border-slate-700 bg-slate-800 text-white rounded-sm">
+                Books & Media Hubb
+              </Link>
+              <Link
+                href={"/home"}
+                className="px-3 py-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer border-2 border-slate-700 rounded-sm">
                 Home
-              </li>
-              <li className="px-3 py-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer border-2 border-slate-700 rounded-sm">
+              </Link>
+              <Link
+                href={"/outdoor"}
+                className="px-3 py-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer border-2 border-slate-700 rounded-sm">
                 Outdoor
-              </li>
-              <li className="px-3 py-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer border-2 border-slate-700 rounded-sm">
+              </Link>
+              <Link
+                href={"/beauty"}
+                className="px-3 py-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer border-2 border-slate-700 rounded-sm">
                 Beauty
-              </li>
+              </Link>
             </ul>
           </div>
         </div>

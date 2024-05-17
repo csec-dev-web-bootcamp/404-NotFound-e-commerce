@@ -6,6 +6,7 @@ import { useCart } from "@app/client/store/cart-store";
 import ModeToggle from "../ui/ModeToggle";
 import Cart from "../global/cart";
 import WishList from "../global/wish-list";
+import Link from "next/link";
 
 const page = () => {
   const cart = useCart();
@@ -19,9 +20,11 @@ const page = () => {
 
       <div className="flex items-center gap-7">
         <ModeToggle />
-        <div className="">
+        <Link
+          href={"/auth/register"}
+          className="">
           <FaRegUser />
-        </div>
+        </Link>
         <Cart />
         <WishList />
       </div>

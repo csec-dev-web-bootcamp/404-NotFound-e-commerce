@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output = "./client"
+  output   = "./client"
 }
 
 datasource db {
@@ -14,8 +14,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id      Int     @id @default(autoincrement())
-  title   String
-  content String? @db.Text
+model Product {
+  id          String  @id @default(uuid())
+  name        String
+  description String? @db.Text
+}
+
+model User {
+  id       String   @id @default(uuid())
+  name     String
+  email    String   @unique
+  password String
+  role     UserRole @default(CUSTOMER)
+}
+
+enum UserRole {
+  ADMIN    @map("admin")
+  CUSTOMER @map("customer")
 }
