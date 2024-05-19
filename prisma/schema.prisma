@@ -15,9 +15,15 @@ datasource db {
 }
 
 model Product {
-  id          String  @id @default(uuid())
-  name        String
-  description String? @db.Text
+  id              String @id @default(uuid())
+  name            String
+  price           Int
+  discountedPrice Int
+  rateReview      Float
+  rateReviewers   Int
+
+  details String? @db.Text
+  images  Json
 }
 
 model User {
