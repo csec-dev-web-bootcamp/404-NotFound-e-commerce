@@ -1,18 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
-import "./test.css";
+import "./auth-form.css";
 import { register } from "../../app/data/auth";
 import { login } from "../../app/data/auth";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Router from "next/router";
+// import { Router } from "next/router";
 import { Facebook } from "lucide-react";
 import { FaFacebookF, FaGoogle, FaWhatsapp } from "react-icons/fa";
 import { ImWhatsapp } from "react-icons/im";
 import { Separator } from "../ui/separator";
 
-export default function Test() {
+export default function AuthForm() {
   const [active, setActive] = useState(false);
   const [registerErrorMsg, setRegisterErrorMsg] = useState("");
   const [loginErrorMsg, setLoginErrorMsg] = useState("");
@@ -29,6 +29,7 @@ export default function Test() {
 
   const registerOnChange = (e) => {
     e.preventDefault();
+    setRegisterErrorMsg("");
     setHandleRegister({
       ...handleRegister,
       [e.target.name]: e.target.value,
@@ -38,27 +39,26 @@ export default function Test() {
     setLoading(true);
     try {
       e.preventDefault();
+      // async function onSubmit(e) {
       const res = await register(handleRegister);
       if (res.error) {
         setRegisterErrorMsg(res.error.message);
-
+        //   alert(res.error);
+        setLoading(false);
         return;
       }
-      if (typeof window !== "undefined") {
-        Router.push("/");
-      }
-      alert(`You have successfully registered`);
+      alert(`You have successfully registered!`);
       setLoading(false);
-      if (typeof window !== "undefined") {
-        Router.push("/");
-      }
+      setRegisterErrorMsg("");
+      route.push("/sdfa");
     } catch (error) {
-      setLoading(false);
+      setRegisterErrorMsg(error.message);
     }
   };
 
   const loginOnChange = (e) => {
     e.preventDefault();
+    setLoginErrorMsg("");
     setHandleLogin({
       ...handleLogin,
       [e.target.name]: e.target.value,
@@ -66,18 +66,26 @@ export default function Test() {
   };
 
   const handleLoginSubmit = async (e) => {
-    e.preventDefault();
-    // async function onSubmit(e) {
-    const res = await login(handleLogin);
-    // console.log({ res });
-    if (res.error) {
-      setRegisterErrorMsg(res.error.message);
-      //   console.log(JSON.stringify(res.error));
-      //   alert(res.error);
-      return;
+    setLoading(true);
+    try {
+      e.preventDefault();
+      // async function onSubmit(e) {
+      const res = await login(handleLogin);
+      // console.log({ res });
+      if (res.error) {
+        setLoginErrorMsg(res.error.message);
+        //   console.log(JSON.stringify(res.error));
+        //   alert(res.error);
+        setLoading(false);
+        return;
+      }
+      alert(`You have successfully logged!`);
+      setLoading(false);
+      setLoginErrorMsg("");
+      route.push("/sdfa");
+    } catch (error) {
+      setLoginErrorMsg(error.message);
     }
-    alert(`You have successfully logged!`);
-    Router.push("/");
   };
 
   return (
@@ -91,7 +99,9 @@ export default function Test() {
           <form onSubmit={handleRegisterSubmit}>
             <p className="py-3 text-xl font-semibold">Sign up</p>
             {registerErrorMsg && (
-              <p className="text-red-500 text-sm">{registerErrorMsg}</p>
+              <p className="text-red-500 text-sm font-semibold">
+                {registerErrorMsg}
+              </p>
             )}
             <input
               name="name"
@@ -156,17 +166,19 @@ export default function Test() {
             </div>
           </form>
         </div>
-        <div className="form-container sign-in-container">
+        <div className="form-container  sign-in-container">
           {/* Sign in container */}
           <form onSubmit={handleLoginSubmit}>
             <p className="py-3 text-xl font-semibold">Sign in</p>
-            {loginErrorMsg && (
-              <p className="text-red-500 text-sm">{loginErrorMsg}</p>
+            {!!loginErrorMsg && (
+              <p className="text-red-500 text-sm font-semibold">
+                {loginErrorMsg}
+              </p>
             )}
             <input
               name="email"
               onChange={loginOnChange}
-              className="border-2 rounded-sm border-slate-700 outline-0"
+              className="border-2 mt-2 rounded-sm border-slate-700 outline-0"
               type="email"
               required
               placeholder="Email"
@@ -213,10 +225,11 @@ export default function Test() {
         <div className="overlay-container">
           <div className="overlay">
             <div className="overlay-panel overlay-left">
-              <h1 className="text-3xl">Welcome Back!</h1>
+              <h1 className="text-3xl">Hello, Friend!</h1>
               <p className="pb-4">
-                To keep connected with us please login with your personal info
+                Enter your personal details and start shopping with us
               </p>
+
               <Separator />
               <p className="mt-3 text-sm">have an account?</p>
 
@@ -228,10 +241,11 @@ export default function Test() {
               </button>
             </div>
             <div className="overlay-panel overlay-right">
-              <h1 className="text-3xl">Hello, Friend!</h1>
+              <h1 className="text-3xl">Welcome Back!</h1>
               <p className="pb-4">
-                Enter your personal details and start shopping with us
+                To keep connected with us please login with your personal info
               </p>
+
               <Separator />
               <p className="mt-3 text-sm">Don't have an account?</p>
               <button
