@@ -1,7 +1,6 @@
 "use client";
-
-import Header from "../components/header";
 import Navbar from "../components/navbar";
+import Header from "../components/header";
 import CardsContainer from "../components/main-products-body/CardsContainer";
 import ProductsCategory from "../components/main-products-body/ProductsCategory";
 

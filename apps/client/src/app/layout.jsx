@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import { Inter as FontSans } from "next/font/google";
+import Navbar from "../components/navbar";
 
 import { cn } from "@app/client/lib/utils";
 import { ThemeProvider } from "../components/ui/theme-provider";
@@ -22,14 +23,17 @@ export default function RootLayout({ children }) {
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
-        )}>
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange>
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
+        {/* <Navbar /> */}
       </body>
     </html>
   );
