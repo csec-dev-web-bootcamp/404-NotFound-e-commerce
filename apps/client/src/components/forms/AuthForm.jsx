@@ -11,6 +11,7 @@ import { Facebook } from "lucide-react";
 import { FaFacebookF, FaGoogle, FaWhatsapp } from "react-icons/fa";
 import { ImWhatsapp } from "react-icons/im";
 import { Separator } from "../ui/separator";
+import Loader from "../loader/loading.jsx";
 
 export default function AuthForm() {
   const [active, setActive] = useState(false);
@@ -90,7 +91,7 @@ export default function AuthForm() {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      {loading && <p className="text-black">Loading...</p>}
+      {loading && <Loader />}
       <div
         className={`container ${active ? "right-panel-active" : ""}`}
         id="container">
