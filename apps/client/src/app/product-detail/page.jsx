@@ -6,44 +6,47 @@ import Navbar from "@app/client/components/navbar";
 const ProductPage = () => {
   const size = ["S", "M", "L", "XL", "2XL", "3XL"];
   const [selectedSize, setSelectedSize] = useState("");
+  const imgs = [
+    {
+      id: 0,
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-9s2EWZgotMRmgc3GsX2iCDvE9dGOorGQePCy-1iQyA&s",
+    },
+    {
+      id: 0,
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-9s2EWZgotMRmgc3GsX2iCDvE9dGOorGQePCy-1iQyA&s",
+    },
+    {
+      id: 0,
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-9s2EWZgotMRmgc3GsX2iCDvE9dGOorGQePCy-1iQyA&s",
+    },
+    {
+      id: 0,
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-9s2EWZgotMRmgc3GsX2iCDvE9dGOorGQePCy-1iQyA&s",
+    },
+  ];
   return (
     <>
       <Navbar />
       <div className="max-w-full  p-6">
-        <div className="p-4 flex flex-col lg:flex-row">
-          <div className="flex flex-col items-center lg:w-1/2">
+        <div className="p-4 flex flex-col lg:flex-row vh">
+          <div className="flex items-stretch lg:justify-center justify-around   lg:h-1/2 gap-10 lg:w-1/2">
+            <div className="sm:flex flex-col justify-around gap-4 max-w-96 overflow-y-auto hidden ">
+              {imgs.map((img) => {
+                return (
+                  // biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
+                  <img
+                    className="size-20 border border-gray-300 rounded flex-grow"
+                    src={img.url}
+                    alt="Thumbnail"
+                  />
+                );
+              })}
+            </div>
             <img
-              className="w-full h-auto border border-gray-300 rounded"
-              src="https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg"
+              className=" border size-96 border-gray-300 rounded"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-9s2EWZgotMRmgc3GsX2iCDvE9dGOorGQePCy-1iQyA&s"
               alt="Product"
             />
-            <div className="flex mt-4 space-x-2 overflow-x-auto max-w-1/2">
-              <img
-                className="w-44 h-40 border border-gray-300 rounded"
-                src="https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg"
-                alt="Thumbnail"
-              />
-              <img
-                className="w-44 h-40 border border-gray-300 rounded"
-                src="https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg"
-                alt="Thumbnail"
-              />
-              <img
-                className="w-44 h-40 border border-gray-300 rounded"
-                src="https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg"
-                alt="Thumbnail"
-              />
-              <img
-                className="w-44 h-40 border border-gray-300 rounded"
-                src="https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg"
-                alt="Thumbnail"
-              />
-              <img
-                className="w-44 h-40 border border-gray-300 rounded"
-                src="https://cdn.thewirecutter.com/wp-content/media/2022/08/macbook-2048px-9765.jpg"
-                alt="Thumbnail"
-              />
-            </div>
           </div>
           <div className="lg:w-1/2 lg:pl-8 mt-6 lg:mt-0">
             <h1 className="lg:text-4xl text-2xl font-semibold text-gray-800">

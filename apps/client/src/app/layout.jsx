@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen w-full xl:max-w-[1400px] flex  flex-col justif-center mx-auto  bg-backgrond font-sans antialiased",
           fontSans.variable
         )}
       >
@@ -31,7 +31,9 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="flex justify-center flex-col items-center">
+            {children}
+          </div>
         </ThemeProvider>
         {/* <Navbar /> */}
       </body>

@@ -119,18 +119,63 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  email: 'email',
+  username: 'username',
+  password: 'password',
+  role: 'role',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+};
+
 exports.Prisma.ProductScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  description: 'description'
+  description: 'description',
+  price: 'price',
+  stockQuantity: 'stockQuantity',
+  categoryId: 'categoryId',
+  createdAt: 'createdAt'
 };
 
-exports.Prisma.UserScalarFieldEnum = {
+exports.Prisma.WishlistScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  email: 'email',
-  password: 'password',
-  role: 'role'
+  userId: 'userId',
+  productId: 'productId'
+};
+
+exports.Prisma.RatingScalarFieldEnum = {
+  id: 'id',
+  rating: 'rating',
+  review: 'review',
+  userId: 'userId',
+  productId: 'productId'
+};
+
+exports.Prisma.OrderScalarFieldEnum = {
+  id: 'id',
+  paymentRef: 'paymentRef',
+  totalPrice: 'totalPrice',
+  paymentStatus: 'paymentStatus',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.OrderItemScalarFieldEnum = {
+  id: 'id',
+  quantity: 'quantity',
+  totalPrice: 'totalPrice',
+  orderId: 'orderId',
+  productId: 'productId'
 };
 
 exports.Prisma.SortOrder = {
@@ -152,9 +197,21 @@ exports.UserRole = exports.$Enums.UserRole = {
   CUSTOMER: 'CUSTOMER'
 };
 
+exports.PaymentStatus = exports.$Enums.PaymentStatus = {
+  PENDING: 'PENDING',
+  CANCELED: 'CANCELED',
+  NOTPAID: 'NOTPAID',
+  PAID: 'PAID'
+};
+
 exports.Prisma.ModelName = {
+  User: 'User',
+  Category: 'Category',
   Product: 'Product',
-  User: 'User'
+  Wishlist: 'Wishlist',
+  Rating: 'Rating',
+  Order: 'Order',
+  OrderItem: 'OrderItem'
 };
 
 /**
