@@ -139,15 +139,26 @@ exports.Prisma.CategoryScalarFieldEnum = {
 exports.Prisma.ProductScalarFieldEnum = {
   id: 'id',
   name: 'name',
+<<<<<<< HEAD
   description: 'description',
   price: 'price',
   stockQuantity: 'stockQuantity',
   categoryId: 'categoryId',
   createdAt: 'createdAt'
+=======
+  price: 'price',
+  discountedPrice: 'discountedPrice',
+  rateReview: 'rateReview',
+  rateReviewers: 'rateReviewers',
+  category: 'category',
+  details: 'details',
+  images: 'images'
+>>>>>>> de62b5515d586f9129ec6f98c5bd4a61eb334576
 };
 
 exports.Prisma.WishlistScalarFieldEnum = {
   id: 'id',
+<<<<<<< HEAD
   userId: 'userId',
   productId: 'productId'
 };
@@ -176,6 +187,67 @@ exports.Prisma.OrderItemScalarFieldEnum = {
   totalPrice: 'totalPrice',
   orderId: 'orderId',
   productId: 'productId'
+=======
+  name: 'name',
+  password: 'password',
+  email: 'email',
+  created_at: 'created_at',
+  role: 'role'
+>>>>>>> de62b5515d586f9129ec6f98c5bd4a61eb334576
+};
+
+exports.Prisma.CategoriesScalarFieldEnum = {
+  category_id: 'category_id',
+  category_name: 'category_name'
+};
+
+exports.Prisma.ProductsScalarFieldEnum = {
+  product_id: 'product_id',
+  category_id: 'category_id',
+  product_name: 'product_name',
+  description: 'description',
+  price: 'price',
+  stock_quantity: 'stock_quantity',
+  created_at: 'created_at'
+};
+
+exports.Prisma.OrderItemsScalarFieldEnum = {
+  order_item_id: 'order_item_id',
+  order_id: 'order_id',
+  product_id: 'product_id',
+  quantity: 'quantity',
+  price: 'price'
+};
+
+exports.Prisma.WishlistScalarFieldEnum = {
+  wishlist_id: 'wishlist_id',
+  id: 'id',
+  product_id: 'product_id',
+  added_date: 'added_date'
+};
+
+exports.Prisma.RatingsScalarFieldEnum = {
+  rating_id: 'rating_id',
+  id: 'id',
+  product_id: 'product_id',
+  rating: 'rating',
+  review: 'review',
+  rating_date: 'rating_date'
+};
+
+exports.Prisma.AdminsScalarFieldEnum = {
+  admin_id: 'admin_id',
+  username: 'username',
+  password: 'password',
+  email: 'email',
+  created_at: 'created_at'
+};
+
+exports.Prisma.OrdersScalarFieldEnum = {
+  order_id: 'order_id',
+  id: 'id',
+  order_status: 'order_status',
+  order_date: 'order_date'
 };
 
 exports.Prisma.SortOrder = {
@@ -183,9 +255,19 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
+};
+
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
+};
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
 };
 
 exports.Prisma.NullsOrder = {
@@ -197,21 +279,39 @@ exports.UserRole = exports.$Enums.UserRole = {
   CUSTOMER: 'CUSTOMER'
 };
 
+<<<<<<< HEAD
 exports.PaymentStatus = exports.$Enums.PaymentStatus = {
   PENDING: 'PENDING',
   CANCELED: 'CANCELED',
   NOTPAID: 'NOTPAID',
   PAID: 'PAID'
+=======
+exports.OrderStatus = exports.$Enums.OrderStatus = {
+  Pending: 'Pending',
+  Accepted: 'Accepted',
+  Rejected: 'Rejected'
+>>>>>>> de62b5515d586f9129ec6f98c5bd4a61eb334576
 };
 
 exports.Prisma.ModelName = {
   User: 'User',
   Category: 'Category',
   Product: 'Product',
+<<<<<<< HEAD
   Wishlist: 'Wishlist',
   Rating: 'Rating',
   Order: 'Order',
   OrderItem: 'OrderItem'
+=======
+  User: 'User',
+  Categories: 'Categories',
+  Products: 'Products',
+  OrderItems: 'OrderItems',
+  Wishlist: 'Wishlist',
+  Ratings: 'Ratings',
+  Admins: 'Admins',
+  Orders: 'Orders'
+>>>>>>> de62b5515d586f9129ec6f98c5bd4a61eb334576
 };
 
 /**

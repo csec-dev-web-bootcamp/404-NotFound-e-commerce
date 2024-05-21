@@ -1,8 +1,10 @@
-import Link from "next/link";
+import AuthForm from "@app/client/components/forms/AuthForm";
 import React from "react";
 
-const page = () => {
-  return <div></div>;
-};
-
-export default page;
+export default function page() {
+  return (
+    <div>
+      <AuthForm />
+    </div>
+  );
+}
