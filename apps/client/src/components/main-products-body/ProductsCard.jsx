@@ -33,7 +33,7 @@ export default function ProductsCard({ product }) {
         />
       </div>
       <div className="text-left mt-4 flex flex-col">
-        <h4 className="text-lg  pl-2 truncate">{product.title}</h4>
+        <h4 className="text-lg  pl-2 truncate">{product.name}</h4>
         <div className="flex justify-between products-center mt-3">
           <h4 className="text-2xl  pl-2 font-bold ">
             ${product.price}{" "}

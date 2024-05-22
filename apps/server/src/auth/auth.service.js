@@ -1,7 +1,6 @@
 import * as argon2 from 'argon2';
-// import { HttpException } from '../middlewares/http-exception-handler';
-import prisma from "../helpers/prisma-client";
-import { HttpException } from '../helpers/http-exception';
+import { HttpException } from '../common/http-exception';
+import prisma from '../config/prisma-client';
 
 export async function createUser(data) {
   const userExist = await prisma.user.findFirst({
@@ -17,7 +16,8 @@ export async function createUser(data) {
   const hash = await argon2.hash(data.password);
   const user = await prisma.user.create({
     data: {
-      name: data.name,
+      firstName: data.firstName,
+      lastName: data.lastName,
       email: data.email,
       password: hash,
     },

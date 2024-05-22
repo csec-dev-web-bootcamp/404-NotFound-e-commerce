@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import "./auth-form.css";
-import { register } from "../../app/data/auth";
-import { login } from "../../app/data/auth";
+// import { register } from "../../data/auth";
+// import { login } from "../../data/auth";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 // import { Router } from "next/router";
@@ -12,14 +12,17 @@ import { FaFacebookF, FaGoogle, FaWhatsapp } from "react-icons/fa";
 import { ImWhatsapp } from "react-icons/im";
 import { Separator } from "../ui/separator";
 import Loader from "../loader/loading.jsx";
+import { login, register } from "@app/client/data/auth";
 
 export default function AuthForm() {
+  const route = useRouter()
   const [active, setActive] = useState(false);
   const [registerErrorMsg, setRegisterErrorMsg] = useState("");
   const [loginErrorMsg, setLoginErrorMsg] = useState("");
   const [loading, setLoading] = useState(false);
   const [handleRegister, setHandleRegister] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
   });
@@ -27,7 +30,6 @@ export default function AuthForm() {
     email: "",
     password: "",
   });
-
   const registerOnChange = (e) => {
     e.preventDefault();
     setRegisterErrorMsg("");
@@ -38,23 +40,19 @@ export default function AuthForm() {
   };
   const handleRegisterSubmit = async (e) => {
     setLoading(true);
-    try {
+   
       e.preventDefault();
-      // async function onSubmit(e) {
       const res = await register(handleRegister);
       if (res.error) {
-        setRegisterErrorMsg(res.error.message);
-        //   alert(res.error);
+        setRegisterErrorMsg(res.error?.message);
         setLoading(false);
         return;
       }
       alert(`You have successfully registered!`);
       setLoading(false);
       setRegisterErrorMsg("");
-      route.push("/sdfa");
-    } catch (error) {
-      setRegisterErrorMsg(error.message);
-    }
+      route.push("/");
+  
   };
 
   const loginOnChange = (e) => {
@@ -71,6 +69,7 @@ export default function AuthForm() {
     try {
       e.preventDefault();
       // async function onSubmit(e) {
+        
       const res = await login(handleLogin);
       // console.log({ res });
       if (res.error) {
@@ -83,7 +82,7 @@ export default function AuthForm() {
       alert(`You have successfully logged!`);
       setLoading(false);
       setLoginErrorMsg("");
-      route.push("/sdfa");
+      route.push("/");
     } catch (error) {
       setLoginErrorMsg(error.message);
     }
@@ -105,7 +104,15 @@ export default function AuthForm() {
               </p>
             )}
             <input
-              name="name"
+              name="firstName"
+              onChange={registerOnChange}
+              className="border-2 rounded-sm border-slate-700 outline-0"
+              type="text"
+              required
+              placeholder="Name"
+            />
+             <input
+              name="lastName"
               onChange={registerOnChange}
               className="border-2 rounded-sm border-slate-700 outline-0"
               type="text"

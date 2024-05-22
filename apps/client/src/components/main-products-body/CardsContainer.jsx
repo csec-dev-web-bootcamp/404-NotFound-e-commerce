@@ -178,12 +178,12 @@ const data = [
 
 import ProductsCard from "./ProductsCard";
 
-export default function CardsContainer() {
+export default function CardsContainer({products}) {
   return (
     <div className="font-medium">
-      <div className="p-4 mx-auto lg:max-w-6xl max-w-xl md:max-w-full">
+      <div className="p-4 mx-auto w-full lg:max-w-[1400px] ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {data.map((product) => (
+          {products.map((product) => (
             <ProductsCard
               key={product.id}
               product={product}

@@ -1,19 +1,18 @@
 import express from 'express';
-import { asyncHandler } from '@lib/common';
+import { asyncHandler } from '../common/async-handler';
 import { createUser, loginUser } from './auth.service';
-import generateJwtToken from './generate-jwt-token';
+import generateJwtToken from './jwt/generate-jwt-token';
+import { validationPipe } from '../common/validation.pipe';
+import { loginSchema, registerSchema } from './auth.schema';
 
 const authController = express.Router();
 
 authController.post(
   '/register',
+  validationPipe(registerSchema),
   asyncHandler(async (req, res) => {
-
     const data = req.body;
-    if(!data.email || !data.password  || !data.name) {
-      return res.status(400).json({ error: 'Email,name and password are required' });
-    }
-    // console.log(data);
+    console.log({ data });
     const user = await createUser(data);
     const jwt = generateJwtToken(user);
     return res.json({ user, jwt });
@@ -22,6 +21,7 @@ authController.post(
 
 authController.post(
   '/login',
+  validationPipe(loginSchema),
   asyncHandler(async (req, res) => {
     const data = req.body;
     const user = await loginUser(data);

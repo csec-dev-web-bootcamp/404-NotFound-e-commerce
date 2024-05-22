@@ -1601,7 +1601,6 @@ export namespace Prisma {
     firstName: string | null
     lastName: string | null
     email: string | null
-    username: string | null
     password: string | null
     role: $Enums.UserRole | null
     createdAt: Date | null
@@ -1613,7 +1612,6 @@ export namespace Prisma {
     firstName: string | null
     lastName: string | null
     email: string | null
-    username: string | null
     password: string | null
     role: $Enums.UserRole | null
     createdAt: Date | null
@@ -1625,7 +1623,6 @@ export namespace Prisma {
     firstName: number
     lastName: number
     email: number
-    username: number
     password: number
     role: number
     createdAt: number
@@ -1639,7 +1636,6 @@ export namespace Prisma {
     firstName?: true
     lastName?: true
     email?: true
-    username?: true
     password?: true
     role?: true
     createdAt?: true
@@ -1651,7 +1647,6 @@ export namespace Prisma {
     firstName?: true
     lastName?: true
     email?: true
-    username?: true
     password?: true
     role?: true
     createdAt?: true
@@ -1663,7 +1658,6 @@ export namespace Prisma {
     firstName?: true
     lastName?: true
     email?: true
-    username?: true
     password?: true
     role?: true
     createdAt?: true
@@ -1748,7 +1742,6 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    username: string
     password: string
     role: $Enums.UserRole
     createdAt: Date
@@ -1777,7 +1770,6 @@ export namespace Prisma {
     firstName?: boolean
     lastName?: boolean
     email?: boolean
-    username?: boolean
     password?: boolean
     role?: boolean
     createdAt?: boolean
@@ -1793,7 +1785,6 @@ export namespace Prisma {
     firstName?: boolean
     lastName?: boolean
     email?: boolean
-    username?: boolean
     password?: boolean
     role?: boolean
     createdAt?: boolean
@@ -1821,7 +1812,6 @@ export namespace Prisma {
       firstName: string
       lastName: string
       email: string
-      username: string
       password: string
       role: $Enums.UserRole
       createdAt: Date
@@ -2229,7 +2219,6 @@ export namespace Prisma {
     readonly firstName: FieldRef<"User", 'String'>
     readonly lastName: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
-    readonly username: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'UserRole'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
@@ -3527,6 +3516,7 @@ export namespace Prisma {
     id: string | null
     name: string | null
     description: string | null
+    imgUrl: string | null
     price: number | null
     stockQuantity: number | null
     categoryId: string | null
@@ -3537,6 +3527,7 @@ export namespace Prisma {
     id: string | null
     name: string | null
     description: string | null
+    imgUrl: string | null
     price: number | null
     stockQuantity: number | null
     categoryId: string | null
@@ -3547,6 +3538,7 @@ export namespace Prisma {
     id: number
     name: number
     description: number
+    imgUrl: number
     price: number
     stockQuantity: number
     categoryId: number
@@ -3569,6 +3561,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    imgUrl?: true
     price?: true
     stockQuantity?: true
     categoryId?: true
@@ -3579,6 +3572,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    imgUrl?: true
     price?: true
     stockQuantity?: true
     categoryId?: true
@@ -3589,6 +3583,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    imgUrl?: true
     price?: true
     stockQuantity?: true
     categoryId?: true
@@ -3686,6 +3681,7 @@ export namespace Prisma {
     id: string
     name: string
     description: string | null
+    imgUrl: string
     price: number
     stockQuantity: number
     categoryId: string | null
@@ -3715,6 +3711,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    imgUrl?: boolean
     price?: boolean
     stockQuantity?: boolean
     categoryId?: boolean
@@ -3730,6 +3727,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    imgUrl?: boolean
     price?: boolean
     stockQuantity?: boolean
     categoryId?: boolean
@@ -3758,6 +3756,7 @@ export namespace Prisma {
       id: string
       name: string
       description: string | null
+      imgUrl: string
       price: number
       stockQuantity: number
       categoryId: string | null
@@ -4166,6 +4165,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Product", 'String'>
     readonly name: FieldRef<"Product", 'String'>
     readonly description: FieldRef<"Product", 'String'>
+    readonly imgUrl: FieldRef<"Product", 'String'>
     readonly price: FieldRef<"Product", 'Float'>
     readonly stockQuantity: FieldRef<"Product", 'Int'>
     readonly categoryId: FieldRef<"Product", 'String'>
@@ -8382,7 +8382,6 @@ export namespace Prisma {
     firstName: 'firstName',
     lastName: 'lastName',
     email: 'email',
-    username: 'username',
     password: 'password',
     role: 'role',
     createdAt: 'createdAt',
@@ -8404,6 +8403,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     description: 'description',
+    imgUrl: 'imgUrl',
     price: 'price',
     stockQuantity: 'stockQuantity',
     categoryId: 'categoryId',
@@ -8581,7 +8581,6 @@ export namespace Prisma {
     firstName?: StringFilter<"User"> | string
     lastName?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
-    username?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     role?: EnumUserRoleFilter<"User"> | $Enums.UserRole
     createdAt?: DateTimeFilter<"User"> | Date | string
@@ -8596,7 +8595,6 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrder
     email?: SortOrder
-    username?: SortOrder
     password?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
@@ -8609,7 +8607,6 @@ export namespace Prisma {
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     email?: string
-    username?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
@@ -8622,14 +8619,13 @@ export namespace Prisma {
     orders?: OrderListRelationFilter
     ratings?: RatingListRelationFilter
     wishlist?: WishlistListRelationFilter
-  }, "id" | "email" | "username">
+  }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
     email?: SortOrder
-    username?: SortOrder
     password?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
@@ -8647,7 +8643,6 @@ export namespace Prisma {
     firstName?: StringWithAggregatesFilter<"User"> | string
     lastName?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
-    username?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
     role?: EnumUserRoleWithAggregatesFilter<"User"> | $Enums.UserRole
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -8701,6 +8696,7 @@ export namespace Prisma {
     id?: StringFilter<"Product"> | string
     name?: StringFilter<"Product"> | string
     description?: StringNullableFilter<"Product"> | string | null
+    imgUrl?: StringFilter<"Product"> | string
     price?: FloatFilter<"Product"> | number
     stockQuantity?: IntFilter<"Product"> | number
     categoryId?: StringNullableFilter<"Product"> | string | null
@@ -8715,6 +8711,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
+    imgUrl?: SortOrder
     price?: SortOrder
     stockQuantity?: SortOrder
     categoryId?: SortOrderInput | SortOrder
@@ -8732,6 +8729,7 @@ export namespace Prisma {
     NOT?: ProductWhereInput | ProductWhereInput[]
     name?: StringFilter<"Product"> | string
     description?: StringNullableFilter<"Product"> | string | null
+    imgUrl?: StringFilter<"Product"> | string
     price?: FloatFilter<"Product"> | number
     stockQuantity?: IntFilter<"Product"> | number
     categoryId?: StringNullableFilter<"Product"> | string | null
@@ -8746,6 +8744,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
+    imgUrl?: SortOrder
     price?: SortOrder
     stockQuantity?: SortOrder
     categoryId?: SortOrderInput | SortOrder
@@ -8764,6 +8763,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Product"> | string
     name?: StringWithAggregatesFilter<"Product"> | string
     description?: StringNullableWithAggregatesFilter<"Product"> | string | null
+    imgUrl?: StringWithAggregatesFilter<"Product"> | string
     price?: FloatWithAggregatesFilter<"Product"> | number
     stockQuantity?: IntWithAggregatesFilter<"Product"> | number
     categoryId?: StringNullableWithAggregatesFilter<"Product"> | string | null
@@ -9013,7 +9013,6 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    username: string
     password: string
     role?: $Enums.UserRole
     createdAt?: Date | string
@@ -9028,7 +9027,6 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    username: string
     password: string
     role?: $Enums.UserRole
     createdAt?: Date | string
@@ -9043,7 +9041,6 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9058,7 +9055,6 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9073,7 +9069,6 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    username: string
     password: string
     role?: $Enums.UserRole
     createdAt?: Date | string
@@ -9085,7 +9080,6 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9097,7 +9091,6 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9147,6 +9140,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    imgUrl?: string
     price?: number
     stockQuantity: number
     createdAt?: Date | string
@@ -9160,6 +9154,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    imgUrl?: string
     price?: number
     stockQuantity: number
     categoryId?: string | null
@@ -9173,6 +9168,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9186,6 +9182,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9199,6 +9196,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    imgUrl?: string
     price?: number
     stockQuantity: number
     categoryId?: string | null
@@ -9209,6 +9207,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9218,6 +9217,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9518,7 +9518,6 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrder
     email?: SortOrder
-    username?: SortOrder
     password?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
@@ -9530,7 +9529,6 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrder
     email?: SortOrder
-    username?: SortOrder
     password?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
@@ -9542,7 +9540,6 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrder
     email?: SortOrder
-    username?: SortOrder
     password?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
@@ -9677,6 +9674,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    imgUrl?: SortOrder
     price?: SortOrder
     stockQuantity?: SortOrder
     categoryId?: SortOrder
@@ -9692,6 +9690,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    imgUrl?: SortOrder
     price?: SortOrder
     stockQuantity?: SortOrder
     categoryId?: SortOrder
@@ -9702,6 +9701,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    imgUrl?: SortOrder
     price?: SortOrder
     stockQuantity?: SortOrder
     categoryId?: SortOrder
@@ -10834,6 +10834,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    imgUrl?: string
     price?: number
     stockQuantity: number
     createdAt?: Date | string
@@ -10846,6 +10847,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    imgUrl?: string
     price?: number
     stockQuantity: number
     createdAt?: Date | string
@@ -10887,6 +10889,7 @@ export namespace Prisma {
     id?: StringFilter<"Product"> | string
     name?: StringFilter<"Product"> | string
     description?: StringNullableFilter<"Product"> | string | null
+    imgUrl?: StringFilter<"Product"> | string
     price?: FloatFilter<"Product"> | number
     stockQuantity?: IntFilter<"Product"> | number
     categoryId?: StringNullableFilter<"Product"> | string | null
@@ -11058,7 +11061,6 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    username: string
     password: string
     role?: $Enums.UserRole
     createdAt?: Date | string
@@ -11072,7 +11074,6 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    username: string
     password: string
     role?: $Enums.UserRole
     createdAt?: Date | string
@@ -11090,6 +11091,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    imgUrl?: string
     price?: number
     stockQuantity: number
     createdAt?: Date | string
@@ -11102,6 +11104,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    imgUrl?: string
     price?: number
     stockQuantity: number
     categoryId?: string | null
@@ -11131,7 +11134,6 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11145,7 +11147,6 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11175,7 +11176,6 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    username: string
     password: string
     role?: $Enums.UserRole
     createdAt?: Date | string
@@ -11189,7 +11189,6 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    username: string
     password: string
     role?: $Enums.UserRole
     createdAt?: Date | string
@@ -11207,6 +11206,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    imgUrl?: string
     price?: number
     stockQuantity: number
     createdAt?: Date | string
@@ -11219,6 +11219,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    imgUrl?: string
     price?: number
     stockQuantity: number
     categoryId?: string | null
@@ -11248,7 +11249,6 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11262,7 +11262,6 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11286,6 +11285,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11298,6 +11298,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11311,7 +11312,6 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    username: string
     password: string
     role?: $Enums.UserRole
     createdAt?: Date | string
@@ -11325,7 +11325,6 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    username: string
     password: string
     role?: $Enums.UserRole
     createdAt?: Date | string
@@ -11379,7 +11378,6 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11393,7 +11391,6 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11422,6 +11419,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    imgUrl?: string
     price?: number
     stockQuantity: number
     createdAt?: Date | string
@@ -11434,6 +11432,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    imgUrl?: string
     price?: number
     stockQuantity: number
     categoryId?: string | null
@@ -11487,6 +11486,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11499,6 +11499,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11630,6 +11631,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    imgUrl?: string
     price?: number
     stockQuantity: number
     createdAt?: Date | string
@@ -11639,6 +11641,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11651,6 +11654,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11663,6 +11667,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11746,6 +11751,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11758,6 +11764,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11770,6 +11777,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    imgUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stockQuantity?: IntFieldUpdateOperationsInput | number
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
