@@ -9,8 +9,10 @@ import { MdRemoveShoppingCart } from "react-icons/md";
 import { useWishlist } from "@app/client/store/wishlist";
 import { LucideHeartCrack } from "lucide-react";
 import { LucideHeartOff } from "lucide-react";
+import Link from "next/link";
 
 export default function ProductsCard({ product }) {
+  console.log(product);
   const cart = useCart();
   const wishlist = useWishlist();
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
@@ -26,16 +28,18 @@ export default function ProductsCard({ product }) {
   return (
     <div className="p-2 rounded-sm border-[1px] border-slate-300 dark:border-slate-700 shadow-md">
       <div className="h-[220px]">
-        <img
-          src={product.image}
-          alt={`${product.title} imgsss`}
-          className="h-full w-full rounded-sm "
-        />
+        <Link href={`/products/${product.id}`}>
+          <img
+            src={product.imgUrl}
+            alt={`${product.title} imgsss`}
+            className="h-full w-full rounded-sm "
+          />
+        </Link>
       </div>
       <div className="text-left mt-4 flex flex-col">
-        <h4 className="text-lg  pl-2 truncate">{product.name}</h4>
+        <h4 className="text- pl-2 truncate">{product.name}</h4>
         <div className="flex justify-between products-center mt-3">
-          <h4 className="text-2xl  pl-2 font-bold ">
+          <h4 className="text-3xl  pl-2 font-bold ">
             ${product.price}{" "}
             <strike className="text-gray-400 ml-0.5 font-semibold text-base">
               $15
@@ -55,7 +59,7 @@ export default function ProductsCard({ product }) {
         </div>
         <Button
           variant="cartBtn"
-          className="gap-3"
+          className={`${isAddedToCart && 'bg-white text-black'}gap-3`}
           onClick={() =>
             isAddedToCart
               ? cart.removeFromCart(product.id)
@@ -63,11 +67,11 @@ export default function ProductsCard({ product }) {
           }
         >
           {isAddedToCart ? (
-            <MdRemoveShoppingCart size={24} />
+            <MdRemoveShoppingCart size={23} />
           ) : (
-            <FaCartPlus size={24} />
+            <FaCartPlus size={23} />
           )}
-          {isAddedToCart ? "remove from cart" : "add to cart"}
+          {isAddedToCart ? "Remove from cart" : "Add to cart"}
         </Button>
       </div>
     </div>
