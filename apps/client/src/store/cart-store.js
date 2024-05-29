@@ -8,6 +8,7 @@ export const useCart = create((set) => ({
       const currentState = JSON.parse(JSON.stringify(state));
       currentState.cartProducts.push({
         ...product,
+        name: product.name,
         totalPrice: product.price,
         amount: 1,
       });

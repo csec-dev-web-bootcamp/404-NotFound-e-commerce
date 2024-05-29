@@ -86,7 +86,7 @@ export default function ProductsForm() {
                   <FormLabel>Product Name</FormLabel>
                   <FormControl>
                     <Input
-                      className="bg-slate-100"
+                      className="bg-slate-100 dark:bg-slate-800 dark:text-white"
                       placeholder="Enter the product name"
                       {...field}
                     />
@@ -101,16 +101,14 @@ export default function ProductsForm() {
               name="category"
               render={({ field }) => (
                 <FormItem className="flex flex-col">
-                  <FormLabel className="">
-                    Select category for your product{" "}
-                  </FormLabel>
+                  <FormLabel className="">Product Category </FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select a verified email to display" />
+                        <SelectValue placeholder="Select category for your product" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -138,7 +136,7 @@ export default function ProductsForm() {
                   <FormControl>
                     <Input
                       type="number"
-                      className="bg-slate-100"
+                      className="bg-slate-100 dark:bg-slate-800 dark:text-white"
                       placeholder="Enter the price amount"
                       {...field}
                     />
@@ -153,12 +151,12 @@ export default function ProductsForm() {
               name="stockQuantity"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>stock Quantity</FormLabel>
+                  <FormLabel>Stock Quantity</FormLabel>
                   <FormControl>
                     <Input
                       type="number"
-                      className="bg-slate-100"
-                      placeholder="Enter the price amount"
+                      className="bg-slate-100 dark:bg-slate-800 dark:text-white"
+                      placeholder="Enter the quantity"
                       {...field}
                     />
                   </FormControl>
@@ -176,7 +174,7 @@ export default function ProductsForm() {
                   <FormControl>
                     <Textarea
                       placeholder="Description about the product"
-                      className="bg-slate-100"
+                      className="bg-slate-100 dark:bg-slate-800 dark:text-white"
                       {...field}
                     />
                   </FormControl>
@@ -190,11 +188,11 @@ export default function ProductsForm() {
               name="imgUrl"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>picture</FormLabel>
+                  <FormLabel>Picture</FormLabel>
                   <FormControl>
                     <Input
                       type="text"
-                      className="bg-slate-100"
+                      className="bg-slate-100 dark:bg-slate-800 dark:text-white"
                       placeholder="Enter the url of the image"
                       {...field}
                     />
@@ -207,7 +205,7 @@ export default function ProductsForm() {
             <Button
               disabled={isMutating}
               type="submit"
-              className="w-full bg-slate-950 hover:bg-slate-800"
+              className="w-full bg-slate-950 hover:bg-slate-800 dark:bg-slate-300 dark:hover:bg-slate-200"
             >
               Create Product
             </Button>

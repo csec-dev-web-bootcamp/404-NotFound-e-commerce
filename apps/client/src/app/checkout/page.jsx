@@ -44,15 +44,16 @@ const page = () => {
             You have {products.length} products below
           </h1>
           <div className="container m-20">
-            <div class="grid grid-cols-3  gap-8">
-              <div class="bg-stone-100 dark:text-white dark:bg-gray-800 col-span-2 p-2 border-[1px] border-slate-300 rounded-lg  flex flex-col shadow-md gap-4">
+            <div className="grid grid-cols-3  gap-8">
+              <div className="bg-stone-100 dark:text-white dark:bg-gray-800 col-span-2 p-2 border-[1px] border-slate-300 rounded-lg  flex flex-col shadow-md gap-4">
                 {products.map((item) => {
                   return (
                     <div
                       key={item.id}
-                      className="card border-[2px] rounded-lg  dark:border-slate-700 border-stone-300 shadow-lg w-full grid grid-cols-3 gap-4">
+                      className="card border-[2px] rounded-lg  dark:border-slate-700 border-stone-300 shadow-lg w-full grid grid-cols-3 gap-4"
+                    >
                       <img
-                        src={item.image}
+                        src={item.imgUrl}
                         alt=""
                         className="h-full col-span-1 p-1 row-span-3   rounded-lg"
                       />
@@ -60,40 +61,38 @@ const page = () => {
                         <div className="grid  gap-y-3 h-full p-2">
                           <div className="flex row-span-1 justify-between items-center">
                             <h3 className="text-xl font-semibold">
-                              {item.title}
+                              {item.name}
                             </h3>
 
                             <Button
                               variant="cartBtn"
                               size="smicon"
                               rounded="full"
-                              onClick={() => carts.removeFromCart(item.id)}>
+                              onClick={() => carts.removeFromCart(item.id)}
+                            >
                               <X />
                             </Button>
                           </div>
                           <div className="row-span-2 flex flex-col justify-between">
-                            <p>
-                              Lorem ti harum aperiam molestiae! Totam quisquam
-                              rerum omnis eos unde!
-                            </p>
                             <p className="font-bold text-xl">
                               ${item.totalPrice}
                             </p>
                           </div>
-                          <p className="row-sapn-2 flex justify-between">
+                          <div className="row-sapn-2 flex justify-between">
                             <div className="flex gap-2 items-center">
                               <Button
                                 variant="cartBtn"
                                 display="center"
                                 size="icon"
                                 onClick={() => carts.addProductAmount(item.id)}
-                                font="highXl">
+                                font="highXl"
+                              >
                                 +
                               </Button>
-                              <p className="text-xl font-bold">
+                              <h3 className="text-xl font-bold">
                                 {item.amount}{" "}
                                 <span className="text-sm">pcs.</span>
-                              </p>
+                              </h3>
                               <Button
                                 variant="cartBtn"
                                 display="center"
@@ -101,21 +100,22 @@ const page = () => {
                                 onClick={() =>
                                   carts.minusProductAmount(item.id)
                                 }
-                                font="highXl">
+                                font="highXl"
+                              >
                                 -
                               </Button>
                             </div>
                             <Button variant="cartBtn">
                               Complie only this cart
                             </Button>
-                          </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   );
                 })}
               </div>
-              <div class="bg-stone-100 dark:text-white dark:bg-gray-800 col-span-1 max-h-[650px] sticky top-20 p-4 border-[1px] border-slate-300 rounded-lg shadow-lg flex flex-col items-center justify-between  gap-4">
+              <div className="bg-stone-100 dark:text-white dark:bg-gray-800 col-span-1 max-h-[650px] sticky top-20 p-4 border-[1px] border-slate-300 rounded-lg shadow-lg flex flex-col items-center justify-between  gap-4">
                 <p className="text-2xl font-semibold mb-8">
                   Summary of your carts
                 </p>
@@ -157,9 +157,7 @@ const page = () => {
                     <span className="font-bold ">Verifided</span>
                   </p>
                 </div>
-                <Button
-                  variant="cartBtn"
-                  className="w-full">
+                <Button variant="cartBtn" className="w-full">
                   Start the process
                 </Button>
               </div>
