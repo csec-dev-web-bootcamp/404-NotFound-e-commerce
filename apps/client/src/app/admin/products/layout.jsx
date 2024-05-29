@@ -1,5 +1,6 @@
 import AdminCard from "@app/client/components/AdminCard";
 import PageTitle from "@app/client/components/PageTitle";
+import { Nav } from "@app/client/components/ui/nav";
 import { Users } from "lucide-react";
 import { Activity } from "lucide-react";
 import { CreditCard } from "lucide-react";

@@ -30,8 +30,9 @@ export default function ProductCard({ product }) {
         <Button
           onClick={() =>
             isAdded ? cart.removeFromCart(product.id) : cart.addToCart(product)
-          }>
-          {isAdded ? "remove from cart" : "add to cart"}
+          }
+        >
+          {isAdded ? "remove" : "add to cart"}
         </Button>
       </CardFooter>
     </Card>

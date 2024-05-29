@@ -1,67 +1,68 @@
-import express from 'express';
-import { authGuard } from '../auth/auth.guard';
-import { roleGuard } from '../auth/role.guard';
-import { asyncHandler } from '../common/async-handler';
+import express from "express";
+import { authGuard } from "../auth/auth.guard";
+import { roleGuard } from "../auth/role.guard";
+import { asyncHandler } from "../common/async-handler";
 import {
   createProduct,
   deleteProduct,
   getManyProducts,
   getOneProduct,
   updateProduct,
-} from './products.service';
-import { validationPipe } from '../common/validation.pipe';
-import { createProductSchema } from './products.schema';
+} from "./products.service";
+import { validationPipe } from "../common/validation.pipe";
+import { createProductSchema } from "./products.schema";
 
 const productsController = express.Router();
 
 productsController.get(
-  '/',
+  "/",
   asyncHandler(async (req, res) => {
-    const products = await getManyProducts();
+    const query = req.query;
+    const products = await getManyProducts(query.category, query.search ?? "");
     return res.json(products);
-  }),
+  })
 );
 
 productsController.post(
-  '/',
+  "/",
   authGuard,
-  roleGuard(['CUSTOMER', 'ADMIN']),
+  roleGuard(["CUSTOMER", "ADMIN"]),
   validationPipe(createProductSchema),
   asyncHandler(async (req, res) => {
     const data = req.body;
     const product = await createProduct(data);
     return res.json(product);
-  }),
+  })
 );
 
 productsController.get(
-  '/:id',
+  "/:id",
   authGuard,
   asyncHandler(async (req, res) => {
     const { id } = req.params;
     const product = await getOneProduct(id);
     return res.json(product);
-  }),
+  })
 );
 
 productsController.put(
-  '/:id',
+  "/:id",
   validationPipe(createProductSchema),
   asyncHandler(async (req, res) => {
     const data = req.body;
     const { id } = req.params;
     const product = await updateProduct(id, data);
     return res.json(product);
-  }),
+  })
 );
 
 productsController.delete(
-  '/:id',
+  "/:id",
   asyncHandler(async (req, res) => {
     const { id } = req.params;
     const product = await deleteProduct(id);
     return res.json(product);
-  }),
+  })
 );
 
 export default productsController;

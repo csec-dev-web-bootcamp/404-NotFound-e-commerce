@@ -26,7 +26,7 @@ export default function ProductsCard({ product }) {
   }, [wishlist.wishlistProducts]);
 
   return (
-    <div className="p-2 rounded-sm border-[1px] border-slate-300 dark:border-slate-700 shadow-md">
+    <div className="p-4 rounded-sm border-[1px] border-slate-300 dark:border-slate-700 shadow-md relative">
       <div className="h-[220px]">
         <Link href={`/products/${product.id}`}>
           <img
@@ -35,31 +35,31 @@ export default function ProductsCard({ product }) {
             className="h-full w-full rounded-sm "
           />
         </Link>
+        <button
+          className="p-1 m-2 rounded-full hover:bg-emerald-100 dark:bg-slate-500 absolute top-2 right-2"
+          onClick={() =>
+            isAddedToWishlist
+              ? wishlist.removeFromWishlist(product.id)
+              : wishlist.addToWishlist(product)
+          }
+        >
+          {isAddedToWishlist ? <LucideHeartOff /> : <LucideHeart />}
+        </button>
       </div>
-      <div className="text-left mt-4 flex flex-col">
-        <h4 className="text- pl-2 truncate">{product.name}</h4>
-        <div className="flex justify-between products-center mt-3">
-          <h4 className="text-3xl  pl-2 font-bold ">
-            ${product.price}{" "}
-            <strike className="text-gray-400 ml-0.5 font-semibold text-base">
+      <h4 className="text-2xl font-semibold pl-2 truncate">{product.name}</h4>
+      <div className="text-left mt-4 flex flex-row justify-between items-end">
+        <div className="flex justify-between items-center  products-center ">
+          <h4 className="text-3xl  pl-2 font-bold block">
+            <strike className="text-gray-400 ml-0.5 font-semibold text-base block">
               $15
             </strike>
+            ${product.price}{" "}
           </h4>
           {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-          <button
-            className="p-1 m-2 rounded-full hover:bg-emerald-100 dark:bg-slate-500"
-            onClick={() =>
-              isAddedToWishlist
-                ? wishlist.removeFromWishlist(product.id)
-                : wishlist.addToWishlist(product)
-            }
-          >
-            {isAddedToWishlist ? <LucideHeartOff /> : <LucideHeart />}
-          </button>
         </div>
         <Button
           variant="cartBtn"
-          className={`${isAddedToCart && 'bg-white text-black'}gap-3`}
+          className={`${isAddedToCart && "bg-white text-black"}gap-3`}
           onClick={() =>
             isAddedToCart
               ? cart.removeFromCart(product.id)
@@ -71,7 +71,7 @@ export default function ProductsCard({ product }) {
           ) : (
             <FaCartPlus size={23} />
           )}
-          {isAddedToCart ? "Remove from cart" : "Add to cart"}
+          {isAddedToCart ? "Remove" : "Add to cart"}
         </Button>
       </div>
     </div>

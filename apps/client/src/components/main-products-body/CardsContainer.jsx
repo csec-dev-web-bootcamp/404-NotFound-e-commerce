@@ -178,17 +178,13 @@ const data = [
 
 import ProductsCard from "./ProductsCard";
 
-export default function CardsContainer({products}) {
-  
+export default function CardsContainer({ products }) {
   return (
     <div className="font-medium">
       <div className="p-4 mx-auto w-full lg:max-w-[1400px] ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product) => (
-            <ProductsCard
-              key={product.id}
-              product={product}
-            />
+            <ProductsCard key={product.id} product={product} />
           ))}
         </div>
       </div>
