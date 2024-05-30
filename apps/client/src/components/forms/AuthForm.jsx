@@ -15,7 +15,7 @@ import Loader from "../loader/loading.jsx";
 import { login, register } from "@app/client/data/auth";
 
 export default function AuthForm() {
-  const route = useRouter()
+  const route = useRouter();
   const [active, setActive] = useState(false);
   const [registerErrorMsg, setRegisterErrorMsg] = useState("");
   const [loginErrorMsg, setLoginErrorMsg] = useState("");
@@ -40,19 +40,18 @@ export default function AuthForm() {
   };
   const handleRegisterSubmit = async (e) => {
     setLoading(true);
-   
-      e.preventDefault();
-      const res = await register(handleRegister);
-      if (res.error) {
-        setRegisterErrorMsg(res.error?.message);
-        setLoading(false);
-        return;
-      }
-      alert(`You have successfully registered!`);
+
+    e.preventDefault();
+    const res = await register(handleRegister);
+    if (res.error) {
+      setRegisterErrorMsg(res.error?.message);
       setLoading(false);
-      setRegisterErrorMsg("");
-      route.push("/");
-  
+      return;
+    }
+    alert(`You have successfully registered!`);
+    setLoading(false);
+    setRegisterErrorMsg("");
+    route.push("/");
   };
 
   const loginOnChange = (e) => {
@@ -69,7 +68,7 @@ export default function AuthForm() {
     try {
       e.preventDefault();
       // async function onSubmit(e) {
-        
+
       const res = await login(handleLogin);
       // console.log({ res });
       if (res.error) {
@@ -93,7 +92,8 @@ export default function AuthForm() {
       {loading && <Loader />}
       <div
         className={`container ${active ? "right-panel-active" : ""}`}
-        id="container">
+        id="container"
+      >
         <div className="form-container sign-up-container">
           {/* Sign up container */}
           <form onSubmit={handleRegisterSubmit}>
@@ -111,7 +111,7 @@ export default function AuthForm() {
               required
               placeholder="Name"
             />
-             <input
+            <input
               name="lastName"
               onChange={registerOnChange}
               className="border-2 rounded-sm border-slate-700 outline-0"
@@ -141,16 +141,15 @@ export default function AuthForm() {
                   type="checkbox"
                   className="size-4 outline-0  border-2 border-slate-800 rounded-sm"
                 />
-                <p
-                  href="#"
-                  className=" text-md text-right ">
+                <p href="#" className=" text-md text-right ">
                   Remember me
                 </p>
               </div>
             </div>
             <button
               type="submit"
-              className="bg-slate-900 mb-4 hover:bg-white hover:text-black border-2 border-slate-900">
+              className="bg-slate-900 mb-4 hover:bg-white hover:text-black border-2 border-slate-900"
+            >
               Sign Up
             </button>
             <Separator />
@@ -158,17 +157,20 @@ export default function AuthForm() {
             <div className="flex gap-4 ">
               <Link
                 href={"/to"}
-                className="border-2 rounded-md border-slate-800 hover:bg-slate-900 hover:text-white size-7 flex items-center justify-center">
+                className="border-2 rounded-md border-slate-800 hover:bg-slate-900 hover:text-white size-7 flex items-center justify-center"
+              >
                 <FaFacebookF size={20} />
               </Link>
               <Link
                 href={"/to"}
-                className="border-2 rounded-md border-slate-800 hover:bg-slate-900 hover:text-white size-7 flex items-center justify-center">
+                className="border-2 rounded-md border-slate-800 hover:bg-slate-900 hover:text-white size-7 flex items-center justify-center"
+              >
                 <FaGoogle size={20} />
               </Link>
               <Link
                 href={"/to"}
-                className="border-2 rounded-md border-slate-800 hover:bg-slate-900 hover:text-white size-7 flex items-center justify-center">
+                className="border-2 rounded-md border-slate-800 hover:bg-slate-900 hover:text-white size-7 flex items-center justify-center"
+              >
                 <ImWhatsapp size={22} />
               </Link>
             </div>
@@ -199,14 +201,13 @@ export default function AuthForm() {
               required
               placeholder="Password"
             />
-            <Link
-              href="#"
-              className="text-blue-600 text-md text-right ">
+            <Link href="#" className="text-blue-600 text-md text-right ">
               Forgot your password?
             </Link>
             <button
               type="submit"
-              className="bg-slate-900 mb-4 hover:bg-white hover:text-black border-2 border-slate-900">
+              className="bg-slate-900 mb-4 hover:bg-white hover:text-black border-2 border-slate-900"
+            >
               Sign In
             </button>
             <Separator />
@@ -214,17 +215,20 @@ export default function AuthForm() {
             <div className="flex gap-4 ">
               <Link
                 href={"/to"}
-                className="border-2 rounded-md border-slate-800 hover:bg-slate-900 hover:text-white size-7 flex items-center justify-center">
+                className="border-2 rounded-md border-slate-800 hover:bg-slate-900 hover:text-white size-7 flex items-center justify-center"
+              >
                 <FaFacebookF size={20} />
               </Link>
               <Link
                 href={"/to"}
-                className="border-2 rounded-md border-slate-800 hover:bg-slate-900 hover:text-white size-7 flex items-center justify-center">
+                className="border-2 rounded-md border-slate-800 hover:bg-slate-900 hover:text-white size-7 flex items-center justify-center"
+              >
                 <FaGoogle size={20} />
               </Link>
               <Link
                 href={"/to"}
-                className="border-2 rounded-md border-slate-800 hover:bg-slate-900 hover:text-white size-7 flex items-center justify-center">
+                className="border-2 rounded-md border-slate-800 hover:bg-slate-900 hover:text-white size-7 flex items-center justify-center"
+              >
                 <ImWhatsapp size={22} />
               </Link>
             </div>
@@ -244,7 +248,8 @@ export default function AuthForm() {
               <button
                 onClick={() => setActive(false)}
                 className="hover:bg-pink-900  bg-pink-800 mt-5 border-2 border-pink-700 shadow-lg rounded-3xl"
-                id="signIn">
+                id="signIn"
+              >
                 Sign In
               </button>
             </div>
@@ -260,7 +265,8 @@ export default function AuthForm() {
                 // className=""
                 className="hover:bg-pink-900  bg-pink-800 mt-5 border-2 border-pink-700 shadow-lg rounded-3xl"
                 onClick={() => setActive(true)}
-                id="signUp">
+                id="signUp"
+              >
                 Sign Up
               </button>
             </div>

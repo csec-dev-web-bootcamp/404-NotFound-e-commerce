@@ -1,11 +1,17 @@
+"use client";
+
 import AdminCard, { CardContent } from "@app/client/components/AdminCard";
 import BarChart from "@app/client/components/BarChart";
 import PageTitle from "@app/client/components/PageTitle";
 import SalesCard from "@app/client/components/SalesCard";
 import { DollarSign, Users, Activity, CreditCard } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
+import Nav from "./data";
 
 export default function AdminHome() {
+  // useEffect(() => {
+  //   Nav(); // Call Nav function on component mount
+  // }, []);
   const cardData = [
     {
       label: "Total Revenue",

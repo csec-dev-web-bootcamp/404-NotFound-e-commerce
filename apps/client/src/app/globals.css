@@ -75,11 +75,19 @@
   }
 }
 
-
-
-.bg-img{
-  background-image: url('../assets/Lovepik_com-401733169-fluid-gradient-background.jpg');
+.bg-img {
+  background-image: url("../assets/Lovepik_com-401733169-fluid-gradient-background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* Hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
