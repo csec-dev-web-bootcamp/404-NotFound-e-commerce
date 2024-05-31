@@ -16,7 +16,7 @@ export default function UserAccount() {
   const handleSignOut = async () => {
     // try {
     logout();
-    console.log("first");
+    router.push("/auth");
     // } catch (error) {
     // console.error(error);
     // }

@@ -109,7 +109,7 @@ export default function AuthForm() {
               className="border-2 rounded-sm border-slate-700 outline-0"
               type="text"
               required
-              placeholder="Name"
+              placeholder="First Name"
             />
             <input
               name="lastName"
@@ -117,7 +117,7 @@ export default function AuthForm() {
               className="border-2 rounded-sm border-slate-700 outline-0"
               type="text"
               required
-              placeholder="Name"
+              placeholder="Last Name"
             />
             <input
               name="email"

@@ -12,9 +12,9 @@ import {
 import { MdDelete, MdEdit } from "react-icons/md";
 import { deleteProduct } from "@app/client/data/products";
 
-const handleEdit = (product) => {
-  console.log("edit: ", product);
-};
+// const handleEdit = (product) => {
+//   console.log("edit: ", product);
+// };
 const handleDelete = (product) => {
   deleteProduct(product.id);
 };
