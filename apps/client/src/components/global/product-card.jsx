@@ -28,6 +28,7 @@ export default function ProductCard({ product }) {
       </CardContent>
       <CardFooter className="space-x-2">
         <Button
+        className="bg-slate-900 text-white border-2 border-slate-900 hover-bg-white"
           onClick={() =>
             isAdded ? cart.removeFromCart(product.id) : cart.addToCart(product)
           }

@@ -2,8 +2,8 @@ import "./loader.css";
 
 export default function Loader() {
   return (
-    <div className="flex text-white z-40 fixed cover h-screen w-screen items-center justify-center bg-neutral-900 bg-opacity-60">
-      <div className="flex absolute">
+    <div className="flex absolute text-white z-40 cover h-screen w-screen items-center justify-center bg-neutral-900 bg-opacity-60">
+      <div className="flex ">
         <div class="preloader">
           <svg
             class="cart"

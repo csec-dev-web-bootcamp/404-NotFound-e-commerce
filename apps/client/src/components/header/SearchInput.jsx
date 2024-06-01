@@ -28,10 +28,11 @@ export default function SearchInput() {
   return (
     <input
       type="text"
+      id="SearchInput"
       ref={inputRef}
       onChange={(e) => createQueryString("search")}
       placeholder="Search Across our system"
-      className="w-full p-4 text-slate-700 rounded-lg outline-none border-2 border-slate-800"
+      className="Search w-full p-4 text-slate-700 bg-transparent rounded-lg outline-none border-2 border-slate-800"
     />
   );
 }

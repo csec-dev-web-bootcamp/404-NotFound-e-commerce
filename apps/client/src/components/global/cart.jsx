@@ -26,7 +26,7 @@ export default function Cart() {
     <Sheet>
       <SheetTrigger className="relative">
         <span className="relative">
-          <FaCartArrowDown />
+          <FaCartArrowDown size={20}/>
           {!!cart.cartProducts.length && (
             <span className="absolute top-0  right-0 translate-x-2/3 -translate-y-1/2 rounded-full bg-red-600 text-white text-sm flex justify-center items-center  h-[1.2rem] min-w-[1.2rem] px-1">
               {cart.cartProducts.length}

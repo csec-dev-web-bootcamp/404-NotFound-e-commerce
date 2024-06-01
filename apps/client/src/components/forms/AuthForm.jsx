@@ -90,6 +90,7 @@ export default function AuthForm() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       {loading && <Loader />}
+     
       <div
         className={`container ${active ? "right-panel-active" : ""}`}
         id="container"

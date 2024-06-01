@@ -24,7 +24,7 @@ export default function CartProduct({ product }) {
           <CardTitle>{product.name}</CardTitle>
           <Button
             size="icon"
-            variant="ghost"
+           
             onClick={() => cart.removeFromCart(product.id)}>
             <X />
           </Button>
